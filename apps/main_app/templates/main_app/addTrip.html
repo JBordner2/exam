@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Add</title>
+</head>
+<body>
+
+                {% if messages %}
+                {% for message in messages %}
+                    <p style="color:red">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        <a href="/index">Home</a> <a href="/logout">Logout</a>
+        
+        <form action="/bookTrip" method="post">
+                {% csrf_token %}
+              <p> <input type="text" name="destination" placeholder="destination"> </p> 
+               <p> <input type="text" name="description" placeholder="description"> </p> 
+               <p> <input type="date" name="startDate" placeholder = "Travel Date From"></p>
+               <p> <input type="date" name="endDate" placeholder = "Travel Date To"></p>
+               <p> <input type="submit" value="add"></p>
+        </form>
+</body>
+</html>
